@@ -448,7 +448,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 553545774}
   maxVelocity: 5
-  acceleration: 1000
+  velocity: 0
+  acceleration: 5
   turnSpeed: 5
 --- !u!136 &1962839055
 CapsuleCollider:
