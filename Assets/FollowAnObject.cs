@@ -7,6 +7,13 @@ using static UnityEngine.GraphicsBuffer;
 public class FollowAnObject : MonoBehaviour
 {
     public GameObject target;
+    public float maxVelocity;
+    [SerializeField]
+    private float velocity;
+    private float startVelocity = 0f;
+    public float acceleration;
+    public float turnSpeed;
+    float freq = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -16,25 +23,29 @@ public class FollowAnObject : MonoBehaviour
 
     void Update()
     {
+        Seek();
+    }
+
+    private void Seek()
+    {
         // Seek
         Vector3 direction = target.transform.position - transform.position;
         direction.y = 0f;    // (x, z): position in the floor
 
-        // Flee
-        Vector3 direction = transform.position - target.transform.position;
+        velocity += acceleration * Time.deltaTime;
 
-        Vector3 movement = direction.normalized * maxVelocity;
+        Vector3 movement = direction.normalized * velocity;
 
+
+
+        // rotation
         float angle = Mathf.Rad2Deg * Mathf.Atan2(movement.x, movement.z);
         Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.up);  // up = y
 
+
+
+        // UPDATE POSITION AND ROTATION
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * turnSpeed);
-        transform.position += transform.forward.normalized * maxVelocity * Time.deltaTime;
-
-        Vector3.Distance(target.transform.position, transform.position);
-
-        Mathf.Abs(Vector3.Angle(transform.forward, movement);  // forward = z
+        transform.position += transform.forward.normalized * velocity * Time.deltaTime;
     }
-
-
 }
