@@ -31,6 +31,7 @@ public class movement : MonoBehaviour
 
     private void Wander()
     {
+        offset = UnityEngine.Random.insideUnitCircle.x;
         // parameters: float radius, offset;
         Vector3 localTarget = UnityEngine.Random.insideUnitCircle * radius;
         localTarget += new Vector3(0, 0, offset);
