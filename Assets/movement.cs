@@ -5,8 +5,10 @@ using UnityEngine.AI;
 
 public class movement : MonoBehaviour
 {
-    public GameObject target;
     public NavMeshAgent agent;
+    public float radius;
+    public float offset;
+    private float freq;
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +19,26 @@ public class movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        agent.destination = target.transform.position;
+
+        freq += Time.deltaTime;
+        if (freq > 1.5)
+        {
+            freq -= 1.5f;
+            Wander();
+        }
+        
+    }
+
+    private void Wander()
+    {
+        // parameters: float radius, offset;
+        Vector3 localTarget = UnityEngine.Random.insideUnitCircle * radius;
+        localTarget += new Vector3(0, 0, offset);
+
+        Vector3 worldTarget = transform.TransformPoint(localTarget);
+        worldTarget.y = 0f;
+
+
+        agent.destination = worldTarget;
     }
 }
