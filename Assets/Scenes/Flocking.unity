@@ -156,13 +156,13 @@ MonoBehaviour:
   numFish: 100
   swimLimits: {x: 5, y: 5, z: 5}
   bounded: 0
-  randomize: 0
+  randomize: 1
   followLider: 0
   lider: {fileID: 0}
-  minSpeed: 0.33
-  maxSpeed: 2.89
-  neighbourDistance: 10
-  rotationSpeed: 7.02
+  minSpeed: 3.6
+  maxSpeed: 8.1
+  neighbourDistance: 7.54
+  rotationSpeed: 5.2
   allFish: []
 --- !u!4 &1199568000
 Transform:
