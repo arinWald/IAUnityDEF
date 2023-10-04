@@ -7,6 +7,8 @@ public class FlockScript : MonoBehaviour
     public FlockingManager myManager;
     private float speed;
     public Vector3 direction;
+    float freq = 0f;
+    float time = 1.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +17,21 @@ public class FlockScript : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+    {
+        freq += Time.deltaTime;
+        if (freq > time)
+        {
+            freq -= time;
+            NewMethod();
+        }
+
+        transform.rotation = Quaternion.Slerp(transform.rotation,
+                                      Quaternion.LookRotation(direction),
+                                      myManager.rotationSpeed * Time.deltaTime);
+        transform.Translate(0.0f, 0.0f, Time.deltaTime * speed);
+    }
+
+    private void NewMethod()
     {
         Vector3 cohesion = Vector3.zero;
         Vector3 align = Vector3.zero;
@@ -44,11 +61,6 @@ public class FlockScript : MonoBehaviour
             speed = Mathf.Clamp(align.magnitude, myManager.minSpeed, myManager.maxSpeed);
         }
 
-        direction = (cohesion + align + separation).normalized * speed;
-
-        transform.rotation = Quaternion.Slerp(transform.rotation,
-                                      Quaternion.LookRotation(direction),
-                                      myManager.rotationSpeed * Time.deltaTime);
-        transform.Translate(0.0f, 0.0f, Time.deltaTime * speed);
+        direction = (cohesion * myManager.cohesionLevel + align * myManager.alignLevel + separation * myManager.separationLevel).normalized * speed;
     }
 }

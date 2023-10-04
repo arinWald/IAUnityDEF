@@ -13,16 +13,20 @@ public class FlockingManager : MonoBehaviour
     public GameObject lider;
 
     [Header("Fish Settings")]
-    [Range(-10.0f, 10.0f)]
+    [Range(0.0f, 10.0f)]
     public float minSpeed;
-    [Range(-10.0f, 10.0f)]
+    [Range(0.0f, 10.0f)]
     public float maxSpeed;
     [Range(0.0f, 10.0f)]
     public float neighbourDistance;
-    [Range(-10.0f, 10.0f)]
+    [Range(0.0f, 10.0f)]
     public float rotationSpeed;
 
     public GameObject[] allFish;
+
+    public float cohesionLevel;
+    public float alignLevel;
+    public float separationLevel;
 
     // Start is called before the first frame update
     void Start()
