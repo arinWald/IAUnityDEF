@@ -21,6 +21,8 @@ public class FlockingManager : MonoBehaviour
     public float neighbourDistance;
     [Range(0.0f, 10.0f)]
     public float rotationSpeed;
+    [Range(0.0f, 10.0f)]
+    public float liderSpeed;
 
     public GameObject[] allFish;
 
@@ -32,7 +34,13 @@ public class FlockingManager : MonoBehaviour
     void Start()
     {
         allFish = new GameObject[numFish];
-        for (int i = 0; i < numFish; ++i)
+
+        Vector3 posLider = this.transform.position + new Vector3(Random.Range(0.0f, 10.0f), Random.Range(0.0f, 10.0f), Random.Range(0.0f, 10.0f)); // random position
+        Vector3 randomizeLider = new Vector3(Random.Range(0.0f, 10.0f), Random.Range(0.0f, 10.0f), Random.Range(0.0f, 10.0f)).normalized;// random vector direction
+        allFish[0] = (GameObject)Instantiate(lider, posLider, Quaternion.LookRotation(randomizeLider));
+        allFish[0].GetComponent<FlockScript>().myManager = this;
+
+        for (int i = 1; i < numFish; ++i)
         {
             Vector3 pos = this.transform.position + new Vector3(Random.Range(0.0f, 10.0f), Random.Range(0.0f, 10.0f), Random.Range(0.0f, 10.0f)); // random position
             Vector3 randomize = new Vector3(Random.Range(0.0f, 10.0f), Random.Range(0.0f, 10.0f), Random.Range(0.0f, 10.0f)).normalized;// random vector direction

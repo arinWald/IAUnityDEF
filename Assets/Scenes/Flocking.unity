@@ -158,11 +158,12 @@ MonoBehaviour:
   bounded: 0
   randomize: 1
   followLider: 0
-  lider: {fileID: 0}
+  lider: {fileID: 2581123336891086708, guid: 75869a1fbb96ed74e8824adca8879e8a, type: 3}
   minSpeed: 0
   maxSpeed: 10
   neighbourDistance: 6.42
   rotationSpeed: 1.59
+  liderSpeed: 0
   allFish: []
   cohesionLevel: 1
   alignLevel: 1

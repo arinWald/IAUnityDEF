@@ -9,21 +9,36 @@ public class FlockScript : MonoBehaviour
     public Vector3 direction;
     float freq = 0f;
     float time = 1.0f;
+    
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (this.gameObject.tag == "fish") freq = 10f;
+        if (this.gameObject.tag == "lider") freq = 1f;
     }
 
     // Update is called once per frame
     void Update()
     {
         freq += Time.deltaTime;
-        if (freq > time)
+
+        if (this.gameObject.tag == "fish")
         {
-            freq -= time;
-            NewMethod();
+            if (freq > 1f)
+            {
+                freq -= 1f;
+                NewMethod();
+            }
         }
+        if (this.gameObject.tag == "lider")
+        {
+            if (freq > 3f)
+            {
+                freq -= 3f;
+                NewMethod();
+            }
+        }
+
 
         transform.rotation = Quaternion.Slerp(transform.rotation,
                                       Quaternion.LookRotation(direction),
@@ -36,6 +51,7 @@ public class FlockScript : MonoBehaviour
         Vector3 cohesion = Vector3.zero;
         Vector3 align = Vector3.zero;
         Vector3 separation = Vector3.zero;
+        Vector3 liderDirection = Vector3.zero;
         int num = 0;
 
         foreach (GameObject go in myManager.allFish)
@@ -44,6 +60,8 @@ public class FlockScript : MonoBehaviour
             {
                 float distance = Vector3.Distance(go.transform.position,
                                                   transform.position);
+                liderDirection = (myManager.allFish[0].transform.position - transform.position);
+
                 if (distance <= myManager.neighbourDistance)
                 {
                     cohesion += go.transform.position;
@@ -58,9 +76,19 @@ public class FlockScript : MonoBehaviour
         {
             cohesion = (cohesion / num - transform.position).normalized * speed;
             align /= num;
+            
+        }
+
+        if (this.gameObject.tag == "fish")
+        {
+            direction = (cohesion * myManager.cohesionLevel + align * myManager.alignLevel + separation * myManager.separationLevel + liderDirection).normalized * speed;
             speed = Mathf.Clamp(align.magnitude, myManager.minSpeed, myManager.maxSpeed);
         }
 
-        direction = (cohesion * myManager.cohesionLevel + align * myManager.alignLevel + separation * myManager.separationLevel).normalized * speed;
+        if (this.gameObject.tag == "lider")
+        {
+            direction = (cohesion * myManager.cohesionLevel + align * myManager.alignLevel + separation * myManager.separationLevel).normalized * speed;
+            speed = myManager.liderSpeed;
+        }
     }
 }
