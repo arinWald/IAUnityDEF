@@ -154,19 +154,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fishPrefab: {fileID: 8278440474191774468, guid: b09b1d97bfe677344896732c0df728d2, type: 3}
   numFish: 100
-  swimLimits: {x: 5, y: 5, z: 5}
-  bounded: 0
-  randomize: 1
-  followLider: 0
-  lider: {fileID: 0}
-  minSpeed: 0
-  maxSpeed: 10
+  allFish: []
+  swimLimits: {x: 30, y: 30, z: 30}
+  leaderFishPrefab: {fileID: 0}
+  leader: {fileID: 0}
+  minSpeed: 2.2
+  maxSpeed: 3.89
   neighbourDistance: 6.42
   rotationSpeed: 1.59
-  allFish: []
-  cohesionLevel: 1
-  alignLevel: 1
-  separationLevel: 1
+  leaderColors:
+  - {r: 1, g: 0, b: 0, a: 0}
+  leaderChangeInterval: 2
 --- !u!4 &1199568000
 Transform:
   m_ObjectHideFlags: 0

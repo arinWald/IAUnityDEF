@@ -1,18 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class FlockingManager : MonoBehaviour
 {
     public static FlockingManager myManager;
 
-
     public GameObject fishPrefab;
     public int numFish;
     public GameObject[] allFish;
-    public Vector3 swimLimits = new Vector3(5.0f, 5.0f, 5.0f); public GameObject Lider;
+    public Vector3 swimLimits = new Vector3(5.0f, 5.0f, 5.0f);
+
+    public GameObject leaderFishPrefab;
+    [HideInInspector]
+    public GameObject leader;
 
     [Range(1.0f, 10.0f)]
     public float minSpeed;
@@ -23,16 +24,11 @@ public class FlockingManager : MonoBehaviour
     [Range(1.0f, 10.0f)]
     public float rotationSpeed;
 
+    public Color[] leaderColors; // Define your leader colors in the Inspector
 
-    //[Range(-1f, 1f)]
-    //public float COH_W;
-    //[Range(-1f, 1f)]
-    //public float AL_W;
-    //[Range(-1f, 1f)]
-    //public float SEP_W;
+    private float timeSinceLastLeaderChange = 0f;
+    public float leaderChangeInterval = 2f; // Change the leader every 2 seconds (adjust as needed)
 
-
-    // Start is called before the first frame update
     void Start()
     {
         allFish = new GameObject[numFish];
@@ -48,15 +44,23 @@ public class FlockingManager : MonoBehaviour
             myManager = this;
         }
 
+        // Instantiate the initial leader
+        SetRandomLeader();
     }
 
-
-    // Update is called once per frame
     void Update()
     {
+        // Update the leader change timer
+        timeSinceLastLeaderChange += Time.deltaTime;
 
-        //swimlimits
+        // Change the leader every leaderChangeInterval seconds
+        if (timeSinceLastLeaderChange >= leaderChangeInterval)
+        {
+            SetRandomLeader();
+            timeSinceLastLeaderChange = 0f; // Reset the timer
+        }
 
+        // Swim limits
         for (int i = 0; i < numFish; ++i)
         {
             Vector3 pos = allFish[i].transform.position;
@@ -80,4 +84,56 @@ public class FlockingManager : MonoBehaviour
         }
     }
 
+    private void SetRandomLeader()
+    {
+        // Randomly select a new leader from allFish
+        int newLeaderIndex = Random.Range(0, numFish);
+        GameObject newLeader = allFish[newLeaderIndex];
+
+        // Reset the color of the previous leader (if it exists)
+        if (leader != null)
+        {
+            Renderer previousLeaderRenderer = leader.GetComponent<Renderer>();
+            if (previousLeaderRenderer != null)
+            {
+                previousLeaderRenderer.material.color = previousLeaderRenderer.GetComponent<Flocking>().originalColor;
+            }
+        }
+
+        // Set a random rotation for the new leader
+        Vector3 randomRotation = new Vector3(
+            Random.Range(0f, 360f), // Random rotation around the X-axis
+            Random.Range(0f, 360f), // Random rotation around the Y-axis
+            Random.Range(0f, 360f)  // Random rotation around the Z-axis
+        );
+
+        newLeader.transform.rotation = Quaternion.Euler(randomRotation);
+
+        // Set a random speed for the leader
+        Flocking leaderFlockingScript = newLeader.GetComponent<Flocking>();
+        if (leaderFlockingScript != null)
+        {
+            leaderFlockingScript.speed = Random.Range(minSpeed, maxSpeed);
+        }
+
+        // Assign a random color to the new leader
+        Renderer newLeaderRenderer = newLeader.GetComponent<Renderer>();
+        if (newLeaderRenderer != null && leaderColors.Length > 0)
+        {
+            Color randomColor = leaderColors[Random.Range(0, leaderColors.Length)];
+            newLeaderRenderer.material.color = randomColor;
+        }
+
+        leader = newLeader;
+
+        // Set the leader reference for all fish
+        for (int i = 0; i < numFish; ++i)
+        {
+            Flocking fishFlockingScript = allFish[i].GetComponent<Flocking>();
+            if (fishFlockingScript != null)
+            {
+                fishFlockingScript.leader = leader;
+            }
+        }
+    }
 }
