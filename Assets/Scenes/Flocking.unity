@@ -176,6 +176,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   swimLimits: {x: 5, y: 5, z: 5}
+  goalPos: {x: 0, y: 0, z: 0}
   minSpeed: 0.24
   maxSpeed: 0.88
   neighbourDistance: 10

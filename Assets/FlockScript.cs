@@ -7,6 +7,8 @@ public class FlockScript : MonoBehaviour
 
 	public FlockingManager myManager;
 	float speed;
+	// This bools enable/disables flocking when a fish is on the limits
+	bool turning = false;
 
 	// Use this for initialization
 	void Start()
@@ -18,21 +20,44 @@ public class FlockScript : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		// Reset speed in random moments
-		if(Random.Range(0, 100) < 10)
-        {
-			speed = Random.Range(myManager.minSpeed, myManager.maxSpeed);
-		}
+		Bounds b = new Bounds(myManager.transform.position, myManager.swimLimits * 2);
 
-		// Fish swim for a while in the same direction, then changes the direction
-		if (Random.Range(0, 100) < 10)
+		// If fish is outside the bounds
+		if(!b.Contains(transform.position))
         {
-			ApplyRules();
+			turning = true;
         }
+        else
+        {
+			turning = false;
+        }
+
+		if(turning)
+        {
+			// Fish goes back to the center of the bounds
+			Vector3 direction = myManager.transform.position - transform.position;
+			transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction),
+													myManager.rotationSpeed * Time.deltaTime);
+        }
+		else
+        {
+			// Reset speed in random moments
+			if (Random.Range(0, 100) < 10)
+			{
+				speed = Random.Range(myManager.minSpeed, myManager.maxSpeed);
+			}
+
+			// Fish swim for a while in the same direction, then changes the direction
+			if (Random.Range(0, 100) < 10)
+			{
+				CalculateRules();
+			}
+		}
+		
 		transform.Translate(0, 0, Time.deltaTime * speed);
 
 	}
-	void ApplyRules()
+	void CalculateRules()
 	{
 		GameObject[] gos;
 		gos = myManager.allFish;
