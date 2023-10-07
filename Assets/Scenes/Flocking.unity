@@ -177,8 +177,10 @@ MonoBehaviour:
   - {fileID: 0}
   swimLimits: {x: 5, y: 5, z: 5}
   goalPos: {x: 0, y: 0, z: 0}
-  minSpeed: 0.24
-  maxSpeed: 0.88
+  lider: {fileID: 162896451633179565, guid: 59bf080b0cfe4d3448df110fcd14dbf3, type: 3}
+  liderSpeed: 0
+  minSpeed: 1.61
+  maxSpeed: 5
   neighbourDistance: 10
   rotationSpeed: 1.94
 --- !u!4 &1199568000
@@ -326,7 +328,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0.98021173, b: 1, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -375,7 +377,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2141669340}
   m_LocalRotation: {x: -0.18381341, y: -0.121446796, z: 0.022893187, w: -0.97516114}
-  m_LocalPosition: {x: 6.6646166, y: 8.753586, z: 0.7764015}
+  m_LocalPosition: {x: 0.4, y: 4.18, z: -9.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

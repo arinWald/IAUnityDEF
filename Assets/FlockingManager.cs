@@ -10,6 +10,10 @@ public class FlockingManager : MonoBehaviour
     public Vector3 swimLimits = new Vector3(5, 5, 5);
     public Vector3 goalPos = Vector3.zero;
 
+    public GameObject lider;
+    [Range(0.0f, 5.0f)]
+    public float liderSpeed;
+
     [Header("Fish Settings")]
     [Range(0.0f, 5.0f)]
     public float minSpeed;
@@ -26,6 +30,16 @@ public class FlockingManager : MonoBehaviour
     void Start()
     {
         allFish = new GameObject[numFish];
+
+
+        // Instance of lider
+        Vector3 posLider = this.transform.position + new Vector3(Random.Range(-swimLimits.x, swimLimits.x),
+                                                                Random.Range(-swimLimits.y, swimLimits.y),
+                                                                Random.Range(-swimLimits.z, swimLimits.z));
+
+        allFish[0] = (GameObject)Instantiate(lider, posLider, Quaternion.identity);
+        allFish[0].GetComponent<FlockScript>().myManager = this;
+
         for (int i = 0; i < numFish; i++)
         {
             Vector3 pos = this.transform.position + new Vector3(Random.Range(-swimLimits.x, swimLimits.x),

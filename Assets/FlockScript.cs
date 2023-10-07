@@ -7,6 +7,7 @@ public class FlockScript : MonoBehaviour
 
 	public FlockingManager myManager;
 	float speed;
+
 	// This bools enable/disables flocking when a fish is on the limits
 	bool turning = false;
 
