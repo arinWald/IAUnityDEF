@@ -5,39 +5,33 @@ using UnityEngine;
 public class FlockingManager : MonoBehaviour
 {
     public GameObject fishPrefab;
-    public int numFish;
-    public Vector3 swimLimits;
-    public bool bounded;
-    public bool randomize;
-    public bool followLider;
-    public GameObject lider;
+    public int numFish = 20;
+    public GameObject[] allFish;
+    public Vector3 swimLimits = new Vector3(5, 5, 5);
 
     [Header("Fish Settings")]
-    [Range(0.0f, 10.0f)]
+    [Range(0.0f, 5.0f)]
     public float minSpeed;
-    [Range(0.0f, 10.0f)]
+    [Range(0.0f, 5.0f)]
     public float maxSpeed;
-    [Range(0.0f, 10.0f)]
+
+    [Header("Flocking Rules")]
+    [Range(1.0f, 10.0f)]
     public float neighbourDistance;
-    [Range(0.0f, 10.0f)]
+    [Range(0.0f, 5.0f)]
     public float rotationSpeed;
 
-    public GameObject[] allFish;
-
-    public float cohesionLevel;
-    public float alignLevel;
-    public float separationLevel;
-
-    // Start is called before the first frame update
+    // Use this for initialization
     void Start()
     {
         allFish = new GameObject[numFish];
-        for (int i = 0; i < numFish; ++i)
+        for (int i = 0; i < numFish; i++)
         {
-            Vector3 pos = this.transform.position + new Vector3(Random.Range(0.0f, 10.0f), Random.Range(0.0f, 10.0f), Random.Range(0.0f, 10.0f)); // random position
-            Vector3 randomize = new Vector3(Random.Range(0.0f, 10.0f), Random.Range(0.0f, 10.0f), Random.Range(0.0f, 10.0f)).normalized;// random vector direction
-            allFish[i] = (GameObject)Instantiate(fishPrefab, pos, Quaternion.LookRotation(randomize));
-            allFish[i].GetComponent<FlockScript>().myManager = this;  
+            Vector3 pos = this.transform.position + new Vector3(Random.Range(-swimLimits.x, swimLimits.x),
+                                                                Random.Range(-swimLimits.y, swimLimits.y),
+                                                                Random.Range(-swimLimits.z, swimLimits.z));
+            allFish[i] = (GameObject)Instantiate(fishPrefab, pos, Quaternion.identity);
+            allFish[i].GetComponent<FlockScript>().myManager = this;
         }
     }
 
