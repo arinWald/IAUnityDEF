@@ -40,7 +40,7 @@ public class FlockingManager : MonoBehaviour
         allFish[0] = (GameObject)Instantiate(lider, posLider, Quaternion.identity);
         allFish[0].GetComponent<FlockScript>().myManager = this;
 
-        for (int i = 0; i < numFish; i++)
+        for (int i = 1; i < numFish; i++)
         {
             Vector3 pos = this.transform.position + new Vector3(Random.Range(-swimLimits.x, swimLimits.x),
                                                                 Random.Range(-swimLimits.y, swimLimits.y),
