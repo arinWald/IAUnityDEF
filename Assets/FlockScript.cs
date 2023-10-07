@@ -11,6 +11,7 @@ public class FlockScript : MonoBehaviour
 	// This bools enable/disables flocking when a fish is on the limits
 	bool turning = false;
 
+
 	// Use this for initialization
 	void Start()
 	{
