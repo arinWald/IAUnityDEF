@@ -176,9 +176,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   swimLimits: {x: 5, y: 5, z: 5}
-  minSpeed: 0.79
-  maxSpeed: 1.55
-  neighbourDistance: 6.18
+  minSpeed: 0.24
+  maxSpeed: 0.88
+  neighbourDistance: 10
   rotationSpeed: 1.94
 --- !u!4 &1199568000
 Transform:
@@ -282,7 +282,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1419050515}
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: 0, y: -33.28, z: -28.29}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

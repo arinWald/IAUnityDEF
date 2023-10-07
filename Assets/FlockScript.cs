@@ -11,16 +11,25 @@ public class FlockScript : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-		speed = Random.Range(myManager.minSpeed,
-								myManager.maxSpeed);
+		speed = Random.Range(myManager.minSpeed, myManager.maxSpeed);
 
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
+		// Reset speed in random moments
+		if(Random.Range(0, 100) < 10)
+        {
+			speed = Random.Range(myManager.minSpeed, myManager.maxSpeed);
+		}
+
+		// Fish swim for a while in the same direction, then changes the direction
+		if (Random.Range(0, 100) < 10)
+        {
+			ApplyRules();
+        }
 		transform.Translate(0, 0, Time.deltaTime * speed);
-		ApplyRules();
 
 	}
 	void ApplyRules()
@@ -57,8 +66,14 @@ public class FlockScript : MonoBehaviour
 
 		if (groupSize > 0)
 		{
-			vcentre = vcentre / groupSize;
+			vcentre = vcentre / groupSize + (myManager.goalPos - this.transform.position);
 			speed = gSpeed / groupSize;
+
+			// Avoid uncontrolled speed
+			if(speed > myManager.maxSpeed)
+            {
+				speed = myManager.maxSpeed;
+            }
 
 			Vector3 direction = (vcentre + vavoid) - transform.position;
 			if (direction != Vector3.zero)
