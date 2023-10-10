@@ -21,8 +21,10 @@ public class FlockingManager : MonoBehaviour
     public float neighbourDistance;
     [Range(0.0f, 10.0f)]
     public float rotationSpeed;
-    [Range(0.0f, 10.0f)]
+    [Range(0.0f, 5.0f)]
     public float liderSpeed;
+    [Range(0.0f, 10.0f)]
+    public float followLeaderForce;
 
     public GameObject[] allFish;
 

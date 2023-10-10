@@ -7,20 +7,21 @@ public class FlockScript : MonoBehaviour
     public FlockingManager myManager;
     private float speed;
     public Vector3 direction;
-    float freq = 0f;
+    public float freq = 0f;
+    public float liderFreq = 0f;
     float time = 1.0f;
     
     // Start is called before the first frame update
     void Start()
     {
-        if (this.gameObject.tag == "fish") freq = 10f;
-        if (this.gameObject.tag == "lider") freq = 1f;
+
     }
 
     // Update is called once per frame
     void Update()
     {
         freq += Time.deltaTime;
+        liderFreq += Time.deltaTime;
 
         if (this.gameObject.tag == "fish")
         {
@@ -32,9 +33,9 @@ public class FlockScript : MonoBehaviour
         }
         if (this.gameObject.tag == "lider")
         {
-            if (freq > 3f)
+            if (liderFreq > 4.5f)
             {
-                freq -= 3f;
+                liderFreq -= 4.5f;
                 NewMethod();
             }
         }
@@ -54,13 +55,15 @@ public class FlockScript : MonoBehaviour
         Vector3 liderDirection = Vector3.zero;
         int num = 0;
 
+        liderDirection = (myManager.allFish[0].transform.position - transform.position);
+
         foreach (GameObject go in myManager.allFish)
         {
             if (go != this.gameObject)
             {
                 float distance = Vector3.Distance(go.transform.position,
                                                   transform.position);
-                liderDirection = (myManager.allFish[0].transform.position - transform.position);
+                
 
                 if (distance <= myManager.neighbourDistance)
                 {
@@ -81,7 +84,7 @@ public class FlockScript : MonoBehaviour
 
         if (this.gameObject.tag == "fish")
         {
-            direction = (cohesion * myManager.cohesionLevel + align * myManager.alignLevel + separation * myManager.separationLevel + 30000*liderDirection).normalized * speed;
+            direction = (cohesion * myManager.cohesionLevel + align * myManager.alignLevel + separation * myManager.separationLevel + myManager.followLeaderForce*liderDirection).normalized * speed;
             speed = Mathf.Clamp(align.magnitude, myManager.minSpeed, myManager.maxSpeed);
         }
 

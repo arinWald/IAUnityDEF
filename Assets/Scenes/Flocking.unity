@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 133347283e115d147a5fcce7f47a538f, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.6659458, g: 0.88264495, b: 0.88569474, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -152,18 +152,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c26dd9dd37dd0e0488d94380424da3ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fishPrefab: {fileID: 8278440474191774468, guid: b09b1d97bfe677344896732c0df728d2, type: 3}
+  fishPrefab: {fileID: 100092, guid: 3f8d557d5878aef44954b96159c4292a, type: 3}
   numFish: 100
   swimLimits: {x: 5, y: 5, z: 5}
   bounded: 0
-  randomize: 1
+  randomize: 0
   followLider: 0
-  lider: {fileID: 2581123336891086708, guid: 75869a1fbb96ed74e8824adca8879e8a, type: 3}
+  lider: {fileID: 100092, guid: 5f38a05f6440d154495172bd3da87d55, type: 3}
   minSpeed: 3.0037532
   maxSpeed: 10
   neighbourDistance: 6.5848103
   rotationSpeed: 1.8261826
-  liderSpeed: 0
+  liderSpeed: 2.61
+  followLeaderForce: 10
   allFish: []
   cohesionLevel: 1
   alignLevel: 1
