@@ -81,7 +81,7 @@ public class FlockScript : MonoBehaviour
 
         if (this.gameObject.tag == "fish")
         {
-            direction = (cohesion * myManager.cohesionLevel + align * myManager.alignLevel + separation * myManager.separationLevel + liderDirection).normalized * speed;
+            direction = (cohesion * myManager.cohesionLevel + align * myManager.alignLevel + separation * myManager.separationLevel + 30000*liderDirection).normalized * speed;
             speed = Mathf.Clamp(align.magnitude, myManager.minSpeed, myManager.maxSpeed);
         }
 
