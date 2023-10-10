@@ -32,20 +32,16 @@ public class FollowAnObject : MonoBehaviour
         Vector3 direction = target.transform.position - transform.position;
         direction.y = 0f;    // (x, z): position in the floor
 
-        velocity += acceleration * Time.deltaTime;
+        Vector3 movement = direction.normalized * maxVelocity;
 
-        Vector3 movement = direction.normalized * velocity;
-
-
-
-        // rotation
         float angle = Mathf.Rad2Deg * Mathf.Atan2(movement.x, movement.z);
         Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.up);  // up = y
 
+        Vector3.Distance(target.transform.position, transform.position);
+    
 
-
-        // UPDATE POSITION AND ROTATION
-        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * turnSpeed);
-        transform.position += transform.forward.normalized * velocity * Time.deltaTime;
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotation,
+                                      Time.deltaTime * turnSpeed);
+        transform.position += transform.forward.normalized * maxVelocity * Time.deltaTime;
     }
 }
