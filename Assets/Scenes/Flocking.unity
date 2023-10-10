@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.67931736, g: 0.73285496, b: 0.8046702, a: 1}
+  m_IndirectSpecularColor: {r: 0.679325, g: 0.7328694, b: 0.80467784, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c26dd9dd37dd0e0488d94380424da3ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fishPrefab: {fileID: 100092, guid: 3f8d557d5878aef44954b96159c4292a, type: 3}
+  fishPrefab: {fileID: 100092, guid: 75c08e3f7403e494692b43952287b2ee, type: 3}
   numFish: 100
   allFish:
   - {fileID: 0}
@@ -175,9 +175,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  swimLimits: {x: 5, y: 5, z: 5}
+  swimLimits: {x: 3, y: 3, z: 3}
   goalPos: {x: 0, y: 0, z: 0}
-  lider: {fileID: 100092, guid: 5f38a05f6440d154495172bd3da87d55, type: 3}
+  lider: {fileID: 100092, guid: 84f62890cc85ea04b81d20c05d85f954, type: 3}
   liderSpeed: 0
   minSpeed: 1.61
   maxSpeed: 5

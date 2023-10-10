@@ -1417,7 +1417,7 @@ GameObject:
   - component: {fileID: 400088}
   - component: {fileID: 13700000}
   m_Layer: 0
-  m_Name: cardinal
+  m_Name: bird
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1458,7 +1458,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: aae7627a8ea8a954d9d1fd75fe35f56b, type: 2}
+  - {fileID: 2100000, guid: f7a396734b770b24b86310e38388e11a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1483,7 +1483,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 4300000, guid: f2f7b64dd5c50f8479d6d1610f8537c1, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 2d22c1b2dd1214c4d835fd1f6d436db7, type: 3}
   m_Bones:
   - {fileID: 400084}
   - {fileID: 400074}
@@ -1531,8 +1531,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 400084}
   m_AABB:
-    m_Center: {x: -0.0033269376, y: 0.0077829566, z: 0.000000052154064}
-    m_Extent: {x: 0.05637084, y: 0.03843742, z: 0.08809233}
+    m_Center: {x: -0.0025628023, y: 0.0077829566, z: 0.000000052154064}
+    m_Extent: {x: 0.055606704, y: 0.03843742, z: 0.08809233}
   m_DirtyAABB: 0
 --- !u!1 &100090
 GameObject:
@@ -1583,7 +1583,7 @@ GameObject:
   - component: {fileID: 8200000}
   - component: {fileID: 13500000}
   m_Layer: 0
-  m_Name: lb_cardinal
+  m_Name: lb_chickadeeHQ
   m_TagString: lb_bird
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1598,7 +1598,7 @@ Transform:
   m_GameObject: {fileID: 100092}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.8, y: 1.8, z: 1.8}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 400090}
@@ -1615,7 +1615,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 100092}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: f2f7b64dd5c50f8479d6d1610f8537c1, type: 3}
+  m_Avatar: {fileID: 9000000, guid: 2d22c1b2dd1214c4d835fd1f6d436db7, type: 3}
   m_Controller: {fileID: 9100000, guid: a24ec9cf4c2103646a47e0497a925d6b, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 1
@@ -1639,8 +1639,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a58512123bcd224eb61112b203e6413, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  song1: {fileID: 8300000, guid: 148e954901f21104a960804e72ae599b, type: 3}
-  song2: {fileID: 8300000, guid: 88cd66932850c6c4fbbb742ec868491b, type: 3}
+  song1: {fileID: 8300000, guid: fce07fb9ee1c4e8469eb3dd0106a9214, type: 3}
+  song2: {fileID: 8300000, guid: caa203e8241140740b1aa36136e06c7c, type: 3}
   flyAway1: {fileID: 8300000, guid: 9dabaef0cd2ecb241956e3db52d3bc8d, type: 3}
   flyAway2: {fileID: 8300000, guid: ae13220b2fee67344b8b455414c59ff4, type: 3}
   fleeCrows: 1

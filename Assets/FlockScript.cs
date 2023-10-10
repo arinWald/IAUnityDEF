@@ -50,7 +50,7 @@ public class FlockScript : MonoBehaviour
 			}
 
 			// Fish swim for a while in the same direction, then changes the direction
-			if (Random.Range(0, 100) < 10)
+			if (Random.Range(0, 100) < 90)
 			{
 				CalculateRules();
 			}
