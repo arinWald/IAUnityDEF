@@ -38,7 +38,7 @@ public class FollowAnObject : MonoBehaviour
         Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.up);  // up = y
 
         Vector3.Distance(target.transform.position, transform.position);
-    
+        angle = Mathf.Abs(Vector3.Angle(transform.forward, movement));  // forward = z
 
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation,
                                       Time.deltaTime * turnSpeed);
