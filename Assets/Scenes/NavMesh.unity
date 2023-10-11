@@ -2103,6 +2103,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1929388209}
   - component: {fileID: 1929388207}
+  - component: {fileID: 1929388210}
   m_Layer: 0
   m_Name: Employee
   m_TagString: Untagged
@@ -2123,10 +2124,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1578098411}
+  agent: {fileID: 1929388210}
   maxVelocity: 2
   velocity: 2
   acceleration: 2
   turnSpeed: 2
+  useWander: 1
 --- !u!4 &1929388209
 Transform:
   m_ObjectHideFlags: 0
@@ -2143,6 +2146,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!195 &1929388210
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1929388206}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 2
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &1979857693
 GameObject:
   m_ObjectHideFlags: 0
