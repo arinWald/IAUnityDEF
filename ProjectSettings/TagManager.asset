@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - fish
+  - lb_bird
+  - Target
   layers:
   - Default
   - TransparentFX

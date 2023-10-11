@@ -18,6 +18,8 @@ public class FollowAnObject : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        transform.position = new Vector3(Random.Range(-10, 10), 0, Random.Range(10, -10) / 2);
+        transform.rotation = Quaternion.EulerRotation(0, Random.Range(0, 360), 0);
 
     }
 

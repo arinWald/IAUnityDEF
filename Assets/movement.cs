@@ -14,6 +14,8 @@ public class movement : MonoBehaviour
     void Start()
     {
         NavMeshAgent agent = GetComponent<NavMeshAgent>();
+        transform.position = new Vector3(Random.Range(-15, 15), 0, Random.Range(15, -15) / 2);
+        transform.rotation = Quaternion.EulerRotation(0, Random.Range(0, 360), 0);
     }
 
     // Update is called once per frame
