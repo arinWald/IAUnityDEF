@@ -7,6 +7,9 @@ TagManager:
   - fish
   - lb_bird
   - Target
+  - lb_groundTarget
+  - lb_perchTarget
+  - player
   layers:
   - Default
   - TransparentFX
@@ -14,7 +17,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Player
   - 
   - 
   - 

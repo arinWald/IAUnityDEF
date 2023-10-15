@@ -23,9 +23,9 @@ public class movement : MonoBehaviour
     {
 
         freq += Time.deltaTime;
-        if (freq > 1.5)
+        if (freq > 4.5)
         {
-            freq -= 1.5f;
+            freq -= 4.5f;
             Wander();
         }
         
