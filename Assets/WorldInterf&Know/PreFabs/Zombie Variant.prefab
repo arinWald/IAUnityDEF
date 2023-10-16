@@ -81,23 +81,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: ff184bc369a12bc4ea06049affe6e707, type: 3}
       propertyPath: m_RootOrder
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ff184bc369a12bc4ea06049affe6e707, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.1449919
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ff184bc369a12bc4ea06049affe6e707, type: 3}
-      propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ff184bc369a12bc4ea06049affe6e707, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 11.9
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ff184bc369a12bc4ea06049affe6e707, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ff184bc369a12bc4ea06049affe6e707, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 8.2683735
+      value: 15.95
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ff184bc369a12bc4ea06049affe6e707, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.55993575
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ff184bc369a12bc4ea06049affe6e707, type: 3}
       propertyPath: m_LocalRotation.x
@@ -105,7 +105,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ff184bc369a12bc4ea06049affe6e707, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: -0.828536
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ff184bc369a12bc4ea06049affe6e707, type: 3}
       propertyPath: m_LocalRotation.z
@@ -117,7 +117,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ff184bc369a12bc4ea06049affe6e707, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -111.897
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ff184bc369a12bc4ea06049affe6e707, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -134,6 +134,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: ff184bc369a12bc4ea06049affe6e707, type: 3}
       propertyPath: m_Name
       value: Zombie Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ff184bc369a12bc4ea06049affe6e707, type: 3}
+      propertyPath: m_TagString
+      value: Zombie
       objectReference: {fileID: 0}
     - target: {fileID: 3692726712141159514, guid: ff184bc369a12bc4ea06049affe6e707, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -167,6 +171,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ff184bc369a12bc4ea06049affe6e707, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3465628121293902743}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ff184bc369a12bc4ea06049affe6e707, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8579037655873786201}
   m_SourcePrefab: {fileID: 100100000, guid: ff184bc369a12bc4ea06049affe6e707, type: 3}
 --- !u!1 &8350837138287944500 stripped
 GameObject:
@@ -234,6 +241,27 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!65 &8579037655873786201
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8350837138287944500}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 2.242886, z: 1}
+  m_Center: {x: 0, y: 1.0739543, z: 0}
 --- !u!4 &8696436094733564302 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ff184bc369a12bc4ea06049affe6e707, type: 3}

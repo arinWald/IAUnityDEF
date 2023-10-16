@@ -16,7 +16,9 @@ public class AIVision : MonoBehaviour
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        player = GameObject.FindWithTag("player");
         animator = GetComponent<Animator>();
+        isWalking = false;
     }
     void Update()
     {
@@ -51,6 +53,6 @@ public class AIVision : MonoBehaviour
     {
         // Go to the last player registered position
         agent.destination = player.transform.position;
-        //isWalking = true;
+        isWalking = true;
     }
 }

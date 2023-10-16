@@ -10,6 +10,7 @@ TagManager:
   - lb_groundTarget
   - lb_perchTarget
   - player
+  - Zombie
   layers:
   - Default
   - TransparentFX

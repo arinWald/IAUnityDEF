@@ -10,10 +10,13 @@ public class Patrol : MonoBehaviour
     private int destPoint = 0;
     private NavMeshAgent agent;
 
+    public bool stopPatrolling;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         agent.autoBraking = false;
+        stopPatrolling = false;
         GotoNextPoint();
     }
 
@@ -45,10 +48,12 @@ public class Patrol : MonoBehaviour
                 agent.speed = agent.speed;
             }
 
-            if (agent.remainingDistance < 0.1f)
+            if (agent.remainingDistance < 0.1f && !stopPatrolling)
             {
                 GotoNextPoint();
             }
         }
     }
+
+
 }
