@@ -8,7 +8,7 @@ public class Patrol : MonoBehaviour
     public float slowingDistance = 0.5f; // Adjust this value for slowing down
 
     private int destPoint = 0;
-    private NavMeshAgent agent;
+    public NavMeshAgent agent;
 
     public bool stopPatrolling;
 
