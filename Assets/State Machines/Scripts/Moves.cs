@@ -14,6 +14,8 @@ public class Moves : MonoBehaviour
     GameObject[] hidingSpots;
     NavMeshAgent agent;
 
+    public Vector3 chosenSpot;
+
     void Start()
     {
         agent = this.GetComponent<NavMeshAgent>();
