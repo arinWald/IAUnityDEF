@@ -18,7 +18,8 @@ public class HideBB : BasePrimitiveAction
     public override TaskStatus OnUpdate()
     {
         Moves moves = targetGameobject.GetComponent<Moves>();
-        hide = moves.chosenSpot;
+        moves.Hide();
+        hide = moves.finalDestination;
         return TaskStatus.COMPLETED;
     }
 }

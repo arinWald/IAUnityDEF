@@ -14,7 +14,7 @@ public class Moves : MonoBehaviour
     GameObject[] hidingSpots;
     NavMeshAgent agent;
 
-    public Vector3 chosenSpot;
+    public Vector3 finalDestination;
 
     void Start()
     {
@@ -114,7 +114,7 @@ public class Moves : MonoBehaviour
         float distance = 250.0f;
         hideCol.Raycast(backRay, out info, distance);
 
-
+        finalDestination = info.point + chosenDir.normalized;
         Seek(info.point + chosenDir.normalized);
 
     }

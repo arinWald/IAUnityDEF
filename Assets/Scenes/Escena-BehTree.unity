@@ -1178,9 +1178,11 @@ MonoBehaviour:
     objectParams:
     - {fileID: 382256887}
     - {fileID: 1718742843}
+    - {fileID: 1867897468}
     objectParamsNames:
     - Treasure
     - Floor
+    - hide_target
     objectParamsLostDefaultValue: 
     layerMaskParams: []
     layerMaskParamsNames: []
