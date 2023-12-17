@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Unity.MLAgents;
@@ -7,8 +8,6 @@ using Unity.MLAgents.Actuators;
 public class RollerAgent : Agent
 {
     Rigidbody rBody;
-    public float forceMultiplier = 10;
-
     void Start()
     {
         rBody = GetComponent<Rigidbody>();
@@ -30,7 +29,6 @@ public class RollerAgent : Agent
                                            0.5f,
                                            Random.value * 8 - 4);
     }
-
     public override void CollectObservations(VectorSensor sensor)
     {
         // Target and Agent positions
@@ -41,6 +39,10 @@ public class RollerAgent : Agent
         sensor.AddObservation(rBody.velocity.x);
         sensor.AddObservation(rBody.velocity.z);
     }
+
+    public float forceMultiplier = 10;
+    public float SpeedRot = 120;
+    public float speed = 1;
 
     public override void OnActionReceived(ActionBuffers actionBuffers)
     {
@@ -66,11 +68,16 @@ public class RollerAgent : Agent
             EndEpisode();
         }
     }
-
     public override void Heuristic(in ActionBuffers actionsOut)
     {
-        var continuousActionsOut = actionsOut.ContinuousActions;
-        continuousActionsOut[0] = Input.GetAxis("Horizontal");
-        continuousActionsOut[1] = Input.GetAxis("Vertical");
+        int value = 0;
+        if (Input.GetKey(KeyCode.LeftArrow) && Input.GetKey(KeyCode.UpArrow)) value = 4;
+        else if (Input.GetKey(KeyCode.RightArrow) && Input.GetKey(KeyCode.UpArrow)) value = 5;
+        else if (Input.GetKey(KeyCode.LeftArrow)) value = 1;
+        else if (Input.GetKey(KeyCode.RightArrow)) value = 2;
+        else if (Input.GetKey(KeyCode.UpArrow)) value = 3;
+
+        var temp = actionsOut.DiscreteActions;
+        temp[0] = value;
     }
 }
